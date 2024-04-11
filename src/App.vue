@@ -14,7 +14,7 @@ const menuIsOpen = ref(false)
     <button
     aria-controls="mainNav"
     aria-expanded="true"
-    class="rounded-full border-2 border-red-600 bg-red-300 px-2"
+    class="rounded-full border-2 bg-teal-500 bg-cyan-300 px-2 w-28"
     @pointerdown="menuIsOpen = !menuIsOpen"
   >
     menu
