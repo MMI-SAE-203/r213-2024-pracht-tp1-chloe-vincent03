@@ -2,7 +2,7 @@
 //
 
 import { ref } from 'vue';
-
+const sectionOpen = ref(0)
 
 const sectionsData = [
     {
@@ -22,7 +22,7 @@ const sectionsData = [
       Distinctio, perspiciatis!`
     },
     {
-      label: 'bouton 3',
+      label: 'bouton 3' ,
       texte: `texte panneau 3 Repudiandae corporis voluptates, 
       odit reprehenderit sint pariatur at voluptatum, cumque
       quia sit eligendi ex culpa eos, alias magnam molestiae
@@ -37,7 +37,8 @@ const sectionsData = [
 <template>
   <section v-for="({ label, texte }, key) of sectionsData" :key="key">
     <pre class="font-mono">key : {{ key }}</pre>
-    <pre class="font-mono">label : {{ label }}</pre>
-    <pre class="font-mono">texte : {{ texte }}</pre>
+    <pre @pointerdown="sectionOpen = sectionOpen == (key+1) ? 0: (key+1) " class="font-mono">label : {{ label }}</pre>
+    <pre v-show="sectionOpen === (key+1)" class="font-mono">texte : {{ texte }}</pre>
   </section>
 </template>
+
